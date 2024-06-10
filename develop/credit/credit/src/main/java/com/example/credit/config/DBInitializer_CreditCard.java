@@ -18,13 +18,20 @@ public class DBInitializer_CreditCard {
     CommandLineRunner initDatabase(CreditCardRepository creditCardRepository) {
         return args -> {
             // Create a list of sample users
-            /**var creditCards = List.of(
-                    new CreditCard("Alice", "alice@example.com"),
-                    new User("Bob", "bob@example.com"),
-                    new User("Charlie", "charlie@example.com")
-            );
+            var creditCards = List.of(
+                    new CreditCard(1, 1, "1111222233334444", "Gold", "123", "Active"),
+                    new CreditCard(2, 2, "2222333344445555", "Platinum", "234", "Active"),
+                    new CreditCard(3, 3, "3333444455556666", "Silver", "345", "Paused"),
+                    new CreditCard(4, 4, "4444555566667777", "Gold", "456", "Active"),
+                    new CreditCard(5, 5, "5555666677778888", "Bronze", "567", "Canceled"),
+                    new CreditCard(6, 6, "6666777788889999", "Silver", "678", "Active"),
+                    new CreditCard(7, 7, "7777888899990000", "Platinum", "789", "Paused"),
+                    new CreditCard(8, 8, "8888999900001111", "Gold", "890", "Active"),
+                    new CreditCard(9, 9, "9999000011112222", "Bronze", "901", "Active"),
+                    new CreditCard(10, 10, "0000111122223333", "Silver", "012", "Canceled"));
+
             // Save all users to the database
-            creditCardRepository.saveAll(creditCards);**/
+            creditCardRepository.saveAll(creditCards);
         };
     }
 }
