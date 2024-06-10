@@ -9,13 +9,13 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration // Indicates that this class contains Spring configuration
-public class DBInitializer_User {
+public class DBInitializer_CreditCard {
 
     /*
      * Bean that initializes the database with sample users.
      */
     @Bean
-    CommandLineRunner initDatabase(UserRepository userRepository) {
+    CommandLineRunner initDatabase(CreditCardRepository creditCardRepository) {
         return args -> {
             // Create a list of sample users
             /**var creditCards = List.of(
@@ -24,7 +24,7 @@ public class DBInitializer_User {
                     new User("Charlie", "charlie@example.com")
             );
             // Save all users to the database
-            userRepository.saveAll(users);**/
+            creditCardRepository.saveAll(creditCards);**/
         };
     }
 }

@@ -13,6 +13,8 @@ public class CreditCard {
     private String zipCode;
     private String status; // Paused, Active, Canceled
 
+    private List<Statement> statements;
+
     public CreditCard(Long id, String cardHolderName, String number, String rewardsStatus, String securityCode, String billingAddress, String zipCode, String status, List<Statement> statements) {
         this.id = id;
         this.cardHolderName = cardHolderName;
@@ -97,8 +99,7 @@ public class CreditCard {
         this.id = id;
     }
 
-    @OneToMany(mappedBy = "creditCard", cascade = CascadeType.ALL)
-    private List<Statement> statements;
+    
 
     // Getters and Setters
     
