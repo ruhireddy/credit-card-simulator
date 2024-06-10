@@ -8,16 +8,12 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-@Configuration // Indicates that this class contains Spring configuration
+@Configuration
 public class DBInitializer_Statement {
 
-    /*
-     * Bean that initializes the database with sample users.
-     */
     @Bean
     CommandLineRunner initDatabase(StatementRepository statementRepository) {
         return args -> {
-            // Create a list of sample users
             var statements = List.of(
                     new Statement(1, 1, 1000.00, 500.00, 600.00, 0.00, 0.00, 10.00, 15.00, 1105.00, 5000.00, 3895.00,
                             "2024-06-01", 30),
@@ -39,7 +35,6 @@ public class DBInitializer_Statement {
                             "2024-06-01", 30),
                     new Statement(10, 10, 2502.03, 1251.00, 1258.99, 1.24, 0.00, 25.00, 32.56, 2555.00, 12000.00,
                             9445.00, "2024-06-01", 30));
-            // Save all users to the database
             statementRepository.saveAll(statements);
         };
     }
