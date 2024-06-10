@@ -1,5 +1,6 @@
 package com.example.credit.model;
-import com.example.credit.statement;
+
+import java.beans.Statement;
 import java.util.List;
 
 public class CreditCard {
@@ -25,6 +26,7 @@ public class CreditCard {
         this.statements = statements;
     }
 
+    // getters and setters
     public List<Statement> getStatements() {
         return statements;
     }
@@ -97,9 +99,6 @@ public class CreditCard {
         this.id = id;
     }
 
-    @OneToMany(mappedBy = "creditCard", cascade = CascadeType.ALL)
     private List<Statement> statements;
 
-    // Getters and Setters
-    
 }
