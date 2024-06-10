@@ -14,7 +14,6 @@ public class DBInitializer_Transaction {
     @Bean
     CommandLineRunner initDatabase(TransactionRepository transactionRepository) {
         return args -> {
-            // Create a list of sample transactions
             var transactions = List.of(
                     new Transaction(1, 1, "2024-06-01 10:00:00", 150.00, "Walmart", "Walmart", "Completed", "USD"),
                     new Transaction(2, 2, "2024-06-02 12:30:00", 250.00, "Amazon", "Amazon", "Completed", "EUR"),
@@ -29,8 +28,7 @@ public class DBInitializer_Transaction {
                     new Transaction(9, 9, "2024-06-09 15:15:00", 50.00, "Uber", "Uber", "Completed", "EUR"),
                     new Transaction(10, 10, "2024-06-10 18:30:00", 250.00, "Home Depot", "Home Depot", "Completed",
                             "USD"));
-
-            // Save all transactions to the database
+            
             transactionRepository.saveAll(transactions);
         };
     }
