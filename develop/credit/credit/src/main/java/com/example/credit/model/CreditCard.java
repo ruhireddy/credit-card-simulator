@@ -1,12 +1,8 @@
-package com.example.credit;
-
-import javax.persistence.*;
+package com.example.credit.model;
+import com.example.credit.statement;
 import java.util.List;
 
-@Entity
 public class CreditCard {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String cardHolderName;
@@ -16,8 +12,6 @@ public class CreditCard {
     private String billingAddress;
     private String zipCode;
     private String status; // Paused, Active, Canceled
-
-    @OneToMany(mappedBy = "creditCard", cascade = CascadeType.ALL)
     private List<Statement> statements;
 
     // Getters and Setters
