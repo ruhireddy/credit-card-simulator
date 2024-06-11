@@ -1,23 +1,28 @@
 package com.example.credit.model;
-import org.springframework.boot.autoconfigure.pulsar.PulsarProperties;
-
 import java.util.List;
+import java.util.Date;
 
 public class Statement {
-    double previousBalance;
-    double paymentsAndCredits;
-    double purchases;
-    double balanceTransfers;
-    double cashAdvances;
-    double fees;
-    double interestCharged;
-    double newBalance;
-    double creditLine;
-    double availableCredit;
-    int daysInBillingCycle;
-    List<PulsarProperties.Transaction> transactions;
+    private Long id; // Unique identifier for the statement
+    private Double previousBalance; // Previous balance from the last statement
+    private Double paymentsAndCredits; // Total payments and credits applied
+    private Double purchases; // Total purchases made
+    private Double balanceTransfers; // Total balance transfers
+    private Double cashAdvances; // Total cash advances
+    private Double fees; // Total fees charged
+    private Double interestCharged; // Total interest charged
+    private Double newBalance; // New balance for the current statement
+    private Double creditLine; // Total credit line available
+    private Double availableCredit; // Available credit left
+    private Date statementCloseDate; // Date when the statement closes
+    private Integer daysInBillingCycle; // Number of days in the billing cycle
 
-    public Statement(double previousBalance, double paymentsAndCredits, double purchases, double balanceTransfers, double cashAdvances, double fees, double interestCharged, double newBalance, double creditLine, double availableCredit, int daysInBillingCycle, List<PulsarProperties.Transaction> transactions) {
+    // No-argument constructor
+    public Statement() {
+    }
+
+    // Parameterized constructor
+    public Statement(Double previousBalance, Double paymentsAndCredits, Double purchases, Double balanceTransfers, Double cashAdvances, Double fees, Double interestCharged, Double newBalance, Double creditLine, Double availableCredit, Date statementCloseDate, Integer daysInBillingCycle) {
         this.previousBalance = previousBalance;
         this.paymentsAndCredits = paymentsAndCredits;
         this.purchases = purchases;
@@ -28,106 +33,113 @@ public class Statement {
         this.newBalance = newBalance;
         this.creditLine = creditLine;
         this.availableCredit = availableCredit;
+        this.statementCloseDate = statementCloseDate;
         this.daysInBillingCycle = daysInBillingCycle;
-        this.transactions = transactions;
     }
 
-    // getters and setters
+// Getters and Setters
 
-    public double getPreviousBalance() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Double getPreviousBalance() {
         return previousBalance;
     }
 
-    public void setPreviousBalance(double previousBalance) {
+    public void setPreviousBalance(Double previousBalance) {
         this.previousBalance = previousBalance;
     }
 
-    public double getPaymentsAndCredits() {
+    public Double getPaymentsAndCredits() {
         return paymentsAndCredits;
     }
 
-    public void setPaymentsAndCredits(double paymentsAndCredits) {
+    public void setPaymentsAndCredits(Double paymentsAndCredits) {
         this.paymentsAndCredits = paymentsAndCredits;
     }
 
-    public double getPurchases() {
+    public Double getPurchases() {
         return purchases;
     }
 
-    public void setPurchases(double purchases) {
+    public void setPurchases(Double purchases) {
         this.purchases = purchases;
     }
 
-    public double getBalanceTransfers() {
+    public Double getBalanceTransfers() {
         return balanceTransfers;
     }
 
-    public void setBalanceTransfers(double balanceTransfers) {
+    public void setBalanceTransfers(Double balanceTransfers) {
         this.balanceTransfers = balanceTransfers;
     }
 
-    public double getCashAdvances() {
+    public Double getCashAdvances() {
         return cashAdvances;
     }
 
-    public void setCashAdvances(double cashAdvances) {
+    public void setCashAdvances(Double cashAdvances) {
         this.cashAdvances = cashAdvances;
     }
 
-    public double getFees() {
+    public Double getFees() {
         return fees;
     }
 
-    public void setFees(double fees) {
+    public void setFees(Double fees) {
         this.fees = fees;
     }
 
-    public double getInterestCharged() {
+    public Double getInterestCharged() {
         return interestCharged;
     }
 
-    public void setInterestCharged(double interestCharged) {
+    public void setInterestCharged(Double interestCharged) {
         this.interestCharged = interestCharged;
     }
 
-    public double getNewBalance() {
+    public Double getNewBalance() {
         return newBalance;
     }
 
-    public void setNewBalance(double newBalance) {
+    public void setNewBalance(Double newBalance) {
         this.newBalance = newBalance;
     }
 
-    public double getCreditLine() {
+    public Double getCreditLine() {
         return creditLine;
     }
 
-    public void setCreditLine(double creditLine) {
+    public void setCreditLine(Double creditLine) {
         this.creditLine = creditLine;
     }
 
-    public double getAvailableCredit() {
+    public Double getAvailableCredit() {
         return availableCredit;
     }
 
-    public void setAvailableCredit(double availableCredit) {
+    public void setAvailableCredit(Double availableCredit) {
         this.availableCredit = availableCredit;
     }
 
-    public int getDaysInBillingCycle() {
+    public Date getStatementCloseDate() {
+        return statementCloseDate;
+    }
+
+    public void setStatementCloseDate(Date statementCloseDate) {
+        this.statementCloseDate = statementCloseDate;
+    }
+
+    public Integer getDaysInBillingCycle() {
         return daysInBillingCycle;
     }
 
-    public void setDaysInBillingCycle(int daysInBillingCycle) {
+    public void setDaysInBillingCycle(Integer daysInBillingCycle) {
         this.daysInBillingCycle = daysInBillingCycle;
     }
-
-    public List<PulsarProperties.Transaction> getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(List<PulsarProperties.Transaction> transactions) {
-        this.transactions = transactions;
-    }
 }
-

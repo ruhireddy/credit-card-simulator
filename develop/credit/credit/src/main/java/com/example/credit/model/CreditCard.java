@@ -2,18 +2,21 @@ package com.example.credit.model;
 import java.util.List;
 
 public class CreditCard {
-    private Long id;
 
-    private String cardHolderName;
-    private String number;
-    private String rewardsStatus;
-    private String securityCode;
-    private String billingAddress;
-    private String zipCode;
-    private String status; // Paused, Active, Canceled
+    private Long id; // Unique identifier for the credit card
+    private String cardHolderName; // Name of the credit card holder
+    private String number; // Credit card number
+    private String rewardsStatus; // Rewards status or tier of the card
+    private String securityCode; // Security code (CVV) of the card
+    private String billingAddress; // Billing address of the card holder
+    private String zipCode; // ZIP code of the billing address
+    private String status; // Status of the card (e.g., Paused, Active, Canceled)
 
     private List<Statement> statements;
+    // No-argument constructor
+    public CreditCard() {}
 
+    // Constructor w parameters
     public CreditCard(Long id, String cardHolderName, String number, String rewardsStatus, String securityCode, String billingAddress, String zipCode, String status, List<Statement> statements) {
         this.id = id;
         this.cardHolderName = cardHolderName;
@@ -98,7 +101,4 @@ public class CreditCard {
     public void setId(Long id) {
         this.id = id;
     }
-
-    // Getters and Setters
-    
 }
