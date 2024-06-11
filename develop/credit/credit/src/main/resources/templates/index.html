@@ -10,8 +10,29 @@
 	<body>
 		<h1>Homepage Title</h1>
 		<p>some text here</p>
-		<a href="http://localhost:8080/credit-card">go to credit-card screen</a> <br>
-		<a href="http://localhost:8080/statements">go to statements screen</a>
+        <nav>
+            <ul>
+                <li><a href="http://localhost:8080/">Home</a></li>
+                <li><a href="http://localhost:8080/credit-card">Credit Card</a></li>
+                <li><a href="http://localhost:8080/statements">Statements</a></li>
+            </ul>
+        </nav>
+		<div id="home" class="page">
+			<div class="card">
+				<h2>Citi ThankYou® Preferred</h2>
+				<p>Current Balance: $0.00</p>
+				<p>Available Credit: $2,500.00</p>
+				<button>View Transactions</button>
+				<button>Make a Payment</button>
+			</div>
+			<div class="card">
+				<h2>Citi Forward® Card</h2>
+				<p>Current Balance: $0.00</p>
+				<p>Available Credit: $2,500.00</p>
+				<button>View Transactions</button>
+				<button>Make a Payment</button>
+			</div>
+		</div>
 	</body>
 	<script type="text/javascript" th:src="main.js"></script>
 </html>
