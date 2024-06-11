@@ -19,7 +19,9 @@ public class Statement {
     private ArrayList<Transaction> transactions;
 
     // No-argument constructor
-    public Statement(int i, int i1, double v, double v1, double v2, double v3, double v4, double v5, double v6, double v7, double v8, double v9, String date, int i2) {
+    //public Statement(int i, int i1, double v, double v1, double v2, double v3, double v4, double v5, double v6, double v7, double v8, double v9, String date, int i2) {
+    }
+    public Statement() {
     }
 
     // Parameterized constructor
