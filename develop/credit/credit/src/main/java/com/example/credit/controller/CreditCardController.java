@@ -18,8 +18,16 @@ public class CreditCardController {
     public String index() {
         return "index";
     }
-
     @GetMapping("/credit-card")
+    public String creditCard() {
+            return "credit-card";
+    }
+    @GetMapping("/statements")
+    public String statements() {
+        return "statements";
+    }
+
+    @GetMapping("/credit-cardss")
     public CreditCard getCreditCard() {
         Statement statement = new Statement(
                 1000.0,          // previousBalance
