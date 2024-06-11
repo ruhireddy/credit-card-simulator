@@ -1,5 +1,5 @@
 package com.example.credit.model;
-import java.util.List;
+// import java.util.List;
 import java.util.Date;
 
 public class Statement {
