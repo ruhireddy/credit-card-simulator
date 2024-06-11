@@ -1,5 +1,5 @@
 package com.example.credit.model;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Statement {
@@ -16,6 +16,7 @@ public class Statement {
     private Double availableCredit; // Available credit left
     private Date statementCloseDate; // Date when the statement closes
     private Integer daysInBillingCycle; // Number of days in the billing cycle
+    private ArrayList<Transaction> transactions;
 
     // No-argument constructor
     public Statement() {
@@ -35,6 +36,7 @@ public class Statement {
         this.availableCredit = availableCredit;
         this.statementCloseDate = statementCloseDate;
         this.daysInBillingCycle = daysInBillingCycle;
+        this.transactions = new ArrayList<Transaction>();
     }
 
 // Getters and Setters

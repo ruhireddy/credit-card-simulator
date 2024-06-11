@@ -1,9 +1,9 @@
 package com.example.credit.model;
-import java.util.List;
+import java.util.ArrayList;
 
 public class CreditCard {
 
-    private Long id; // Unique identifier for the credit card
+    private int id; // Unique identifier for the credit card
     private String cardHolderName; // Name of the credit card holder
     private String number; // Credit card number
     private String rewardsStatus; // Rewards status or tier of the card
@@ -12,12 +12,12 @@ public class CreditCard {
     private String zipCode; // ZIP code of the billing address
     private String status; // Status of the card (e.g., Paused, Active, Canceled)
 
-    private List<Statement> statements;
+    private ArrayList<Statement> statements;
     // No-argument constructor
     public CreditCard() {}
 
     // Constructor w parameters
-    public CreditCard(Long id, String cardHolderName, String number, String rewardsStatus, String securityCode, String billingAddress, String zipCode, String status, List<Statement> statements) {
+    public CreditCard(int id, String cardHolderName, String number, String rewardsStatus, String securityCode, String billingAddress, String zipCode, String status) {
         this.id = id;
         this.cardHolderName = cardHolderName;
         this.number = number;
@@ -26,15 +26,15 @@ public class CreditCard {
         this.billingAddress = billingAddress;
         this.zipCode = zipCode;
         this.status = status;
-        this.statements = statements;
+        this.statements = new ArrayList<Statement>();
     }
 
     // getters and setters
-    public List<Statement> getStatements() {
+    public ArrayList<Statement> getStatements() {
         return statements;
     }
 
-    public void setStatements(List<Statement> statements) {
+    public void setStatements(ArrayList<Statement> statements) {
         this.statements = statements;
     }
 
@@ -94,11 +94,11 @@ public class CreditCard {
         this.cardHolderName = cardHolderName;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
