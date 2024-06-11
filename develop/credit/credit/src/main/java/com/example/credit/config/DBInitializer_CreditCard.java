@@ -8,16 +8,12 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-@Configuration // Indicates that this class contains Spring configuration
+@Configuration 
 public class DBInitializer_CreditCard {
 
-    /*
-     * Bean that initializes the database with sample users.
-     */
     @Bean
     CommandLineRunner initDatabase(CreditCardRepository creditCardRepository) {
         return args -> {
-            // Create a list of sample users
             var creditCards = List.of(
                     new CreditCard(1, 1, "1111222233334444", "Gold", "123", "Active"),
                     new CreditCard(2, 2, "2222333344445555", "Platinum", "234", "Active"),
@@ -30,7 +26,6 @@ public class DBInitializer_CreditCard {
                     new CreditCard(9, 9, "9999000011112222", "Bronze", "901", "Active"),
                     new CreditCard(10, 10, "0000111122223333", "Silver", "012", "Canceled"));
 
-            // Save all users to the database
             creditCardRepository.saveAll(creditCards);
         };
     }
