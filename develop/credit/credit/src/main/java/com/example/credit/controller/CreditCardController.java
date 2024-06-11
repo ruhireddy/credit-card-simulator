@@ -3,7 +3,9 @@ package com.example.credit.controller;
 import com.example.credit.model.CreditCard;
 import com.example.credit.model.Statement;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,10 +13,10 @@ import java.util.List;
 
 @RestController
 public class CreditCardController {
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
+//    @RequestMapping("/")
+//    public String index() {
+//        return "index";
+//    }
 
     @GetMapping("/credit-card")
     public CreditCard getCreditCard() {
