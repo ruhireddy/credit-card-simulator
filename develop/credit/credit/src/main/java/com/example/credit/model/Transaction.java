@@ -1,5 +1,4 @@
 package com.example.credit.model;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Transaction {
@@ -15,7 +14,7 @@ public class Transaction {
     private String currency; // Currency used in the transaction
 
     // No-argument constructor
-    public Transaction() {}
+    public Transaction(int i, int i1, String s, double v, String walmart, String string, String completed, String usd) {}
 
     // Constructor w parameters
     public Transaction(String cardHolderName, String cardNumber, String transactionId, Date transactionDate, Double amount, String location, String merchantName, String transactionStatus, String currency) {
