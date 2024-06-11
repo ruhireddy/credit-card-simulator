@@ -11,6 +11,10 @@ import java.util.List;
 
 @RestController
 public class CreditCardController {
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
 
     @GetMapping("/credit-card")
     public CreditCard getCreditCard() {
