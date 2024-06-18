@@ -1,9 +1,15 @@
 package com.example.credit.model;
-import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
+//import java.util.List;
+@Document(collection = "CreditCardAccountInfo")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreditCard {
-
-    private Long id; // Unique identifier for the credit card
     private String cardHolderName; // Name of the credit card holder
     private String number; // Credit card number
     private String rewardsStatus; // Rewards status or tier of the card
@@ -12,13 +18,13 @@ public class CreditCard {
     private String zipCode; // ZIP code of the billing address
     private String status; // Status of the card (e.g., Paused, Active, Canceled)
 
-    private List<Statement> statements;
+//     private List<Statement> statements;
     // No-argument constructor
     public CreditCard() {}
 
     // Constructor w parameters
-    public CreditCard(Long id, String cardHolderName, String number, String rewardsStatus, String securityCode, String billingAddress, String zipCode, String status, List<Statement> statements) {
-        this.id = id;
+    public CreditCard(String cardHolderName, String number, String rewardsStatus, String securityCode, String billingAddress, String zipCode, String status) {
+
         this.cardHolderName = cardHolderName;
         this.number = number;
         this.rewardsStatus = rewardsStatus;
@@ -26,17 +32,17 @@ public class CreditCard {
         this.billingAddress = billingAddress;
         this.zipCode = zipCode;
         this.status = status;
-        this.statements = statements;
+//         this.statements = statements;
     }
 
     // getters and setters
-    public List<Statement> getStatements() {
-        return statements;
-    }
+//    public List<Statement> getStatements() {
+//        return statements;
+//    }
 
-    public void setStatements(List<Statement> statements) {
-        this.statements = statements;
-    }
+//    public void setStatements(List<Statement> statements) {
+//        this.statements = statements;
+//    }
 
     public String getStatus() {
         return status;
@@ -94,11 +100,16 @@ public class CreditCard {
         this.cardHolderName = cardHolderName;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "CreditCard{" +
+                ", cardHolderName='" + cardHolderName + '\'' +
+                ", number='" + number + '\'' +
+                ", rewardsStatus='" + rewardsStatus + '\'' +
+                ", securityCode='" + securityCode + '\'' +
+                ", billingAddress='" + billingAddress + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }
