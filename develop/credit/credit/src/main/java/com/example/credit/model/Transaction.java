@@ -1,24 +1,23 @@
 package com.example.credit.model;
-// import java.util.List;
+
 import java.util.Date;
 
 public class Transaction {
 
-    private Long id; // Unique identifier for the transaction
-    private String cardHolderName; // Name of the credit card holder (masked)
-    private String cardNumber; // Credit card number (masked)
-    private Date transactionDate; // Date of the transaction
-    private Double amount; // Amount of the transaction
-    private String location; // Location where the transaction took place
-    private String merchantName; // Name of the merchant involved in the transaction
-    private String transactionStatus; // Status of the transaction (e.g., Completed, Pending)
-    private String currency; // Currency used in the transaction
+    private String cardHolderName;
+    private String cardNumber;
+    private Date transactionDate;
+    private Double amount;
+    private String location;
+    private String merchantName;
+    private String transactionStatus;
+    private String currency;
 
-    // No-argument constructor
-    public Transaction() {}
+    public Transaction() {
+    }
 
-    // Constructor w parameters
-    public Transaction(String cardHolderName, String cardNumber, String transactionId, Date transactionDate, Double amount, String location, String merchantName, String transactionStatus, String currency) {
+    public Transaction(String cardHolderName, String cardNumber, String transactionId, Date transactionDate,
+            Double amount, String location, String merchantName, String transactionStatus, String currency) {
         this.cardHolderName = cardHolderName;
         this.cardNumber = cardNumber;
         this.transactionDate = transactionDate;
@@ -27,16 +26,6 @@ public class Transaction {
         this.merchantName = merchantName;
         this.transactionStatus = transactionStatus;
         this.currency = currency;
-    }
-
-    // Getters and Setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getCardHolderName() {
