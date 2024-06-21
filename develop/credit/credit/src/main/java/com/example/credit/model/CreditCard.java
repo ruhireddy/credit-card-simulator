@@ -3,6 +3,7 @@ package com.example.credit.model;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Document(collection = "CreditCardAccountInfo")
 @Data
 public class CreditCard {
@@ -39,5 +40,61 @@ public class CreditCard {
                 ", zipCode='" + zipCode + '\'' +
                 ", status='" + status + '\'' +
                 '}';
+    }
+
+    public String getCardHolderName() {
+        return cardHolderName;
+    }
+
+    public void setCardHolderName(String cardHolderName) {
+        this.cardHolderName = cardHolderName;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getRewardsStatus() {
+        return rewardsStatus;
+    }
+
+    public void setRewardsStatus(String rewardsStatus) {
+        this.rewardsStatus = rewardsStatus;
+    }
+
+    public String getSecurityCode() {
+        return securityCode;
+    }
+
+    public void setSecurityCode(String securityCode) {
+        this.securityCode = securityCode;
+    }
+
+    public String getBillingAddress() {
+        return billingAddress;
+    }
+
+    public void setBillingAddress(String billingAddress) {
+        this.billingAddress = billingAddress;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
