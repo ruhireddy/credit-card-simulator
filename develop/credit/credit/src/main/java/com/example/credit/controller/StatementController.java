@@ -3,14 +3,13 @@ package com.example.credit.controller;
 import com.example.credit.model.Statement;
 import com.example.credit.repository.StatementRepo;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("api")
+@Controller
 public class StatementController {
     StatementRepo statementRepo;
 
@@ -19,8 +18,13 @@ public class StatementController {
     }
 
     @GetMapping("/all-statements")
-    public List<Statement> getAllStatements() {
+    public @ResponseBody List<Statement> getAllStatements() {
         return statementRepo.findAll();
+    }
+
+    @GetMapping("/statements")
+    public String statement() {
+        return "statements";
     }
 
 }

@@ -3,14 +3,13 @@ package com.example.credit.controller;
 import com.example.credit.model.CreditCard;
 import com.example.credit.repository.CreditCardRepo;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("api")
+@Controller
 public class CreditCardController {
     CreditCardRepo creditCardRepo;
 
@@ -19,7 +18,7 @@ public class CreditCardController {
     }
 
     @GetMapping("/all-cards")
-    public List<CreditCard> getAllCards() {
+    public @ResponseBody List<CreditCard> getAllCards() {
         return creditCardRepo.findAll();
     }
 

@@ -1,54 +1,35 @@
 package com.example.credit.model;
 
-import java.util.Date;
-
 public class Transaction {
 
-    private String cardHolderName;
-    private String cardNumber;
-    private Date transactionDate;
+    private String transactionDate;
     private Double amount;
-    private String location;
+    private String country;
+    private String cityState;
+    private String zipCode;
     private String merchantName;
+    private String merchantType;
     private String transactionStatus;
-    private String currency;
 
     public Transaction() {
     }
 
-    public Transaction(String cardHolderName, String cardNumber, String transactionId, Date transactionDate,
-            Double amount, String location, String merchantName, String transactionStatus, String currency) {
-        this.cardHolderName = cardHolderName;
-        this.cardNumber = cardNumber;
+    public Transaction(String transactionDate, Double amount, String country, String cityState, String zipCode, String merchantName, String merchantType, String transactionStatus) {
         this.transactionDate = transactionDate;
         this.amount = amount;
-        this.location = location;
+        this.country = country;
+        this.cityState = cityState;
+        this.zipCode = zipCode;
         this.merchantName = merchantName;
+        this.merchantType = merchantType;
         this.transactionStatus = transactionStatus;
-        this.currency = currency;
     }
 
-    public String getCardHolderName() {
-        return cardHolderName;
-    }
-
-    public void setCardHolderName(String cardHolderName) {
-        this.cardHolderName = cardHolderName;
-    }
-
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
-    public void setCardNumber(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public Date getTransactionDate() {
+    public String getTransactionDate() {
         return transactionDate;
     }
 
-    public void setTransactionDate(Date transactionDate) {
+    public void setTransactionDate(String transactionDate) {
         this.transactionDate = transactionDate;
     }
 
@@ -60,12 +41,28 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getLocation() {
-        return location;
+    public String getCountry() {
+        return country;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCityState() {
+        return cityState;
+    }
+
+    public void setCityState(String cityState) {
+        this.cityState = cityState;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
     public String getMerchantName() {
@@ -76,6 +73,14 @@ public class Transaction {
         this.merchantName = merchantName;
     }
 
+    public String getMerchantType() {
+        return merchantType;
+    }
+
+    public void setMerchantType(String merchantType) {
+        this.merchantType = merchantType;
+    }
+
     public String getTransactionStatus() {
         return transactionStatus;
     }
@@ -84,11 +89,17 @@ public class Transaction {
         this.transactionStatus = transactionStatus;
     }
 
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transactionDate='" + transactionDate + '\'' +
+                ", amount=" + amount +
+                ", country='" + country + '\'' +
+                ", cityState='" + cityState + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", merchantName='" + merchantName + '\'' +
+                ", merchantType='" + merchantType + '\'' +
+                ", transactionStatus='" + transactionStatus + '\'' +
+                '}';
     }
 }

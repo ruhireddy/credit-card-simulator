@@ -5,7 +5,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document(collection = "Statements")
-
 @Data
 public class Statement {
     private Double previousBalance;

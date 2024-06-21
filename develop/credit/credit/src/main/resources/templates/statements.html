@@ -12,19 +12,15 @@
 		<nav>
 			<ul>
 				<li><a href="http://localhost:8080/">Home</a></li>
-				<li>
-					<a href="http://localhost:8080/credit-card">Account Summary</a>
-				</li>
-				<li>
-					<a href="http://localhost:8080/statements">Transactions</a>
-				</li>
+				<li><a href="http://localhost:8080/statements">Statements Summary</a></li>
+				<li><a href="http://localhost:8080/transactions">Transactions</a></li>
 			</ul>
 		</nav>
 
-		<!-- Transactions Page -->
-		<div id="transactions" class="page">
-			<h2>Transaction History</h2>
-			<div class="transaction-summary">
+		<!-- Statements Page -->
+		<div id="statements" class="page">
+			<h2>Statement History</h2>
+			<div class="statement-summary">
 				<div>
 					<h3>By Category</h3>
 					<ul>
@@ -51,10 +47,11 @@
 							<td>$203.34</td>
 							<td>Langolo Ristorante</td>
 						</tr>
-						<!-- More transactions here -->
+						<!-- More statements here -->
 					</table>
 				</div>
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript" th:src="main.js"></script>
 </html>
