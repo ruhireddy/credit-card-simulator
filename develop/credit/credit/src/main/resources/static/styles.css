@@ -1,11 +1,13 @@
-
-body {
+/* Default styles for all pages except login */
+body.default-body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
-/*body {
+
+/* Styles specifically for the login page */
+body.login-body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     display: flex;
@@ -13,7 +15,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-}*/
+}
+
 h1 {
     color: #003580;
     margin: 1rem;
@@ -71,10 +74,6 @@ th {
     background-color: #f4f4f4;
 }
 
-
-/*
-// Login
-
 .login-container {
     background-color: #ffffff;
     padding: 20px;
@@ -109,4 +108,3 @@ button {
 button:hover {
     background-color: #0056b3;
 }
-*/
