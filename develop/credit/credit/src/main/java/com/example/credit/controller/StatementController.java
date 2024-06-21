@@ -27,9 +27,9 @@ public class StatementController {
         return "statements";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String login() {
-        return "login";
+        return "homepage";
     }
 
 }

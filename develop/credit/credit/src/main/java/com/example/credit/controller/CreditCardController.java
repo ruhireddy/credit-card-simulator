@@ -18,11 +18,13 @@ public class CreditCardController {
         this.creditCardRepo = creditCardRepo;
     }
 
+
     @GetMapping("/all-cards")
     public @ResponseBody List<CreditCard> getAllCards() {
         return creditCardRepo.findAll();
     }
-    @GetMapping("/{cardNumber}")
+
+    @GetMapping("/api/{cardNumber}")
     public @ResponseBody CreditCard getCreditCard(@PathVariable String cardNumber) {
         return creditCardRepo.findByCardNumber(cardNumber);
     }
