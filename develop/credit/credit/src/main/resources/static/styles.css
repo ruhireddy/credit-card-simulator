@@ -60,3 +60,11 @@ table, th, td {
 th {
     background-color: #f4f4f4;
 }
+.username {
+    color: #003580;
+    margin: 1rem;
+}
+.password {
+    color: #003580;
+    margin: 1rem;
+}
