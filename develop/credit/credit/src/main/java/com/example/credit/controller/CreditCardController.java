@@ -5,6 +5,7 @@ import com.example.credit.repository.CreditCardRepo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -21,5 +22,8 @@ public class CreditCardController {
     public @ResponseBody List<CreditCard> getAllCards() {
         return creditCardRepo.findAll();
     }
-
+    @GetMapping("/{cardNumber}")
+    public @ResponseBody CreditCard getCreditCard(@PathVariable String cardNumber) {
+        return creditCardRepo.findByCardNumber(cardNumber);
+    }
 }
