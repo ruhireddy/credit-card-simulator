@@ -17,6 +17,11 @@ public class TransactionController{
         this.transactionRepo = transactionRepo;
     }
 
+    @GetMapping("/transactions")
+    public String transaction() {
+        return "transactions";
+    }
+
     @GetMapping("/all-transactions")
     public List<Transaction> getAllStatements() {
         return transactionRepo.findAll();
