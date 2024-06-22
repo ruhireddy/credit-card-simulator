@@ -27,9 +27,14 @@ public class StatementController {
         return "statements";
     }
 
-    @GetMapping("/")
-    public String login() {
+    @GetMapping("/homepage")
+    public String homepage() {
         return "homepage";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 
 }

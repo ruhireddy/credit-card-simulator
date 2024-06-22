@@ -1,5 +1,5 @@
 /* Default styles for all pages except login */
-body.default-body {
+body.main-body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@ body.default-body {
 }
 
 /* Styles specifically for the login page */
-body.login-body {
+body.login-page {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     display: flex;
@@ -15,6 +15,13 @@ body.login-body {
     align-items: center;
     height: 100vh;
     margin: 0;
+}
+#login-container {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
 }
 
 h1 {
