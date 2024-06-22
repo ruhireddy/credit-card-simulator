@@ -1,31 +1,28 @@
 package com.example.credit.model;
-import java.util.ArrayList;
-import java.util.Date;
 
+import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document(collection = "Statements")
+@Data
 public class Statement {
-    private Long id; // Unique identifier for the statement
-    private Double previousBalance; // Previous balance from the last statement
-    private Double paymentsAndCredits; // Total payments and credits applied
-    private Double purchases; // Total purchases made
-    private Double balanceTransfers; // Total balance transfers
-    private Double cashAdvances; // Total cash advances
-    private Double fees; // Total fees charged
-    private Double interestCharged; // Total interest charged
-    private Double newBalance; // New balance for the current statement
-    private Double creditLine; // Total credit line available
-    private Double availableCredit; // Available credit left
-    private Date statementCloseDate; // Date when the statement closes
-    private Integer daysInBillingCycle; // Number of days in the billing cycle
-    private ArrayList<Transaction> transactions;
+    private Double previousBalance;
+    private Double paymentsAndCredits;
+    private Double purchases;
+    private Double balanceTransfers;
+    private Double cashAdvances;
+    private Double fees;
+    private Double interestCharged;
+    private Double newBalance;
+    private Double creditLine;
+    private Double availableCredit;
+    private String statementCloseDate;
+    private Integer daysInBillingCycle;
 
-    // No-argument constructor
-    //public Statement(int i, int i1, double v, double v1, double v2, double v3, double v4, double v5, double v6, double v7, double v8, double v9, String date, int i2) {
-    }
-    public Statement() {
-    }
-
-    // Parameterized constructor
-    public Statement(Double previousBalance, Double paymentsAndCredits, Double purchases, Double balanceTransfers, Double cashAdvances, Double fees, Double interestCharged, Double newBalance, Double creditLine, Double availableCredit, Date statementCloseDate, Integer daysInBillingCycle) {
+    public Statement(Double previousBalance, Double paymentsAndCredits, Double purchases, Double balanceTransfers,
+                     Double cashAdvances, Double fees, Double interestCharged, Double newBalance, Double creditLine,
+                     Double availableCredit, String statementCloseDate, Integer daysInBillingCycle) {
         this.previousBalance = previousBalance;
         this.paymentsAndCredits = paymentsAndCredits;
         this.purchases = purchases;
@@ -38,17 +35,24 @@ public class Statement {
         this.availableCredit = availableCredit;
         this.statementCloseDate = statementCloseDate;
         this.daysInBillingCycle = daysInBillingCycle;
-        this.transactions = new ArrayList<Transaction>();
     }
 
-// Getters and Setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Statement{" +
+                "previousBalance=" + previousBalance +
+                ", paymentsAndCredits=" + paymentsAndCredits +
+                ", purchases=" + purchases +
+                ", balanceTransfers=" + balanceTransfers +
+                ", cashAdvances=" + cashAdvances +
+                ", fees=" + fees +
+                ", interestCharged=" + interestCharged +
+                ", newBalance=" + newBalance +
+                ", creditLine=" + creditLine +
+                ", availableCredit=" + availableCredit +
+                ", statementCloseDate='" + statementCloseDate + '\'' +
+                ", daysInBillingCycle=" + daysInBillingCycle +
+                '}';
     }
 
     public Double getPreviousBalance() {
@@ -131,11 +135,11 @@ public class Statement {
         this.availableCredit = availableCredit;
     }
 
-    public Date getStatementCloseDate() {
+    public String getStatementCloseDate() {
         return statementCloseDate;
     }
 
-    public void setStatementCloseDate(Date statementCloseDate) {
+    public void setStatementCloseDate(String statementCloseDate) {
         this.statementCloseDate = statementCloseDate;
     }
 
@@ -147,3 +151,4 @@ public class Statement {
         this.daysInBillingCycle = daysInBillingCycle;
     }
 }
+

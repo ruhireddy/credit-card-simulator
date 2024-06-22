@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" th:href="styles.css" />
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home Page</title>
+	</head>
+	<body class="main-body">
+		<h1>Citi Credit Card Manager</h1>
+        <nav>
+            <ul>
+                <li><a href="http://localhost:8080/homepage">Home</a></li>
+                <li><a href="http://localhost:8080/statements">Statements Summary</a></li>
+                <li><a href="http://localhost:8080/transactions">Transactions</a></li>
+            </ul>
+        </nav>
+		<div id="home" class="page">
+			<div class="card">
+				<h2>Citi ThankYou® Preferred</h2>
+				<p>Current Balance: $0.00</p>
+				<p>Available Credit: $2,500.00</p>
+				<button>View Transactions</button>
+				<button>Make a Payment</button>
+			</div>
+			<div class="card">
+				<h2>Citi Forward® Card</h2>
+				<p>Current Balance: $0.00</p>
+				<p>Available Credit: $2,500.00</p>
+				<button>View Transactions</button>
+				<button>Make a Payment</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" th:src="main.js"></script>
+</html>

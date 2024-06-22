@@ -1,27 +1,31 @@
 package com.example.credit.controller;
 
 import com.example.credit.model.CreditCard;
-import com.example.credit.repository.CreditCardRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.credit.repository.CreditCardRepo;
+
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-@RestController // Marks this class as a Spring MVC controller where every method returns a domain object instead of a view
-@RequestMapping("/api/CreditCards") // Maps HTTP requests to /api/CreditCards to this controller
+@Controller
 public class CreditCardController {
+    CreditCardRepo creditCardRepo;
 
-    @Autowired // Injects the CreditCardRepository dependency - the recomended way is to use contructors  :)
-    private CreditCardRepository creditCardRepository;
+    public CreditCardController(CreditCardRepo creditCardRepo) {
+        this.creditCardRepo = creditCardRepo;
+    }
 
 
-    @GetMapping // Maps HTTP GET requests to /api/CreditCards to this method
-    public List<CreditCard> getAllCreditCards() {
-        /*
-            Fetches and returns all CreditCard entities from the database
-         */
-        return creditCardRepository.findAll();
+    @GetMapping("/all-cards")
+    public @ResponseBody List<CreditCard> getAllCards() {
+        return creditCardRepo.findAll();
+    }
+
+    @GetMapping("/api/{cardNumber}")
+    public @ResponseBody CreditCard getCreditCard(@PathVariable String cardNumber) {
+        return creditCardRepo.findByCardNumber(cardNumber);
     }
 }
