@@ -9,6 +9,8 @@
 	</head>
 <body class="main-body">
     <h1>Citi Credit Card Manager</h1>
+
+    <!-- Nav Bar -->
     <nav>
         <ul>
             <li><a href="http://localhost:8080/homepage">Home</a></li>
@@ -16,6 +18,52 @@
             <li><a href="http://localhost:8080/transactions">Transactions</a></li>
         </ul>
     </nav>
+
+    <!-- Transactions Page -->
+    <div id="transactions" class="page">
+        <h2>Transaction History</h2>
+        <div class="transactions">
+            <div>
+                <h3>Details</h3>
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Country</th>
+                        <th>City-State</th>
+                        <th>Zip Code</th>
+                        <th>Merchant</th>
+                        <th>Category</th>
+                        <th>Transaction Status</th>
+                        <th>Reference</th>
+                    </tr>
+                    <tr>
+                        <td>6/22/2024</td>
+                        <td>$200.09</td>
+                        <td>United States</td>
+                        <td>Tampa, FL</td>
+                        <td>33592</td>
+                        <td>Pizza Hut</td>
+                        <td>Restaurant</td>
+                        <td>Pending</td>
+                        <td>1111222233334444</td>
+                    </tr>
+                    <tr>
+                        <td>6/18/2024</td>
+                        <td>$18.94</td>
+                        <td>United States</td>
+                        <td>Orlando, FL</td>
+                        <td>32789</td>
+                        <td>Costco</td>
+                        <td>Grocery</td>
+                        <td>Paid</td>
+                        <td>9999888877776666</td>
+                    </tr>
+                    <!-- More statements here -->
+                </table>
+            </div>
+        </div>
+    </div>
 
     
 </body>
