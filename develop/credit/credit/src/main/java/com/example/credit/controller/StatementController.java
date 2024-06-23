@@ -5,6 +5,7 @@ import com.example.credit.repository.StatementRepo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -35,6 +36,11 @@ public class StatementController {
     @GetMapping("/login")
     public String login() {
         return "login";
+    }
+
+    @GetMapping("/api/statement/{statementId}")
+    public @ResponseBody Statement getStatement(@PathVariable int statementId) {
+        return statementRepo.findByStatementId(statementId);
     }
 
 }

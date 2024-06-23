@@ -1,7 +1,12 @@
 package com.example.credit.model;
 
-public class Transaction {
+import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "Transactions")
+@Data
+public class Transaction {
+    private int transactionId;
     private String transactionDate;
     private Double amount;
     private String country;
@@ -14,7 +19,23 @@ public class Transaction {
     public Transaction() {
     }
 
-    public Transaction(String transactionDate, Double amount, String country, String cityState, String zipCode, String merchantName, String merchantType, String transactionStatus) {
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transactionId=" + transactionId +
+                ", transactionDate='" + transactionDate + '\'' +
+                ", amount=" + amount +
+                ", country='" + country + '\'' +
+                ", cityState='" + cityState + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", merchantName='" + merchantName + '\'' +
+                ", merchantType='" + merchantType + '\'' +
+                ", transactionStatus='" + transactionStatus + '\'' +
+                '}';
+    }
+
+    public Transaction(int transactionId, String transactionDate, Double amount, String country, String cityState, String zipCode, String merchantName, String merchantType, String transactionStatus) {
+        this.transactionId = transactionId;
         this.transactionDate = transactionDate;
         this.amount = amount;
         this.country = country;
@@ -89,17 +110,11 @@ public class Transaction {
         this.transactionStatus = transactionStatus;
     }
 
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "transactionDate='" + transactionDate + '\'' +
-                ", amount=" + amount +
-                ", country='" + country + '\'' +
-                ", cityState='" + cityState + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", merchantName='" + merchantName + '\'' +
-                ", merchantType='" + merchantType + '\'' +
-                ", transactionStatus='" + transactionStatus + '\'' +
-                '}';
+    public int getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
 }

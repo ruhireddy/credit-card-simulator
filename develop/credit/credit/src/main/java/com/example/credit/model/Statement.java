@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Statements")
 @Data
 public class Statement {
+    private int statementId;
     private Double previousBalance;
     private Double paymentsAndCredits;
     private Double purchases;
@@ -18,11 +19,10 @@ public class Statement {
     private Double creditLine;
     private Double availableCredit;
     private String statementCloseDate;
-    private Integer daysInBillingCycle;
+    private int daysInBillingCycle;
 
-    public Statement(Double previousBalance, Double paymentsAndCredits, Double purchases, Double balanceTransfers,
-                     Double cashAdvances, Double fees, Double interestCharged, Double newBalance, Double creditLine,
-                     Double availableCredit, String statementCloseDate, Integer daysInBillingCycle) {
+    public Statement(int statementId, Double previousBalance, Double paymentsAndCredits, Double purchases, Double balanceTransfers, Double cashAdvances, Double fees, Double interestCharged, Double newBalance, Double creditLine, Double availableCredit, String statementCloseDate, int daysInBillingCycle) {
+        this.statementId = statementId;
         this.previousBalance = previousBalance;
         this.paymentsAndCredits = paymentsAndCredits;
         this.purchases = purchases;
@@ -40,7 +40,8 @@ public class Statement {
     @Override
     public String toString() {
         return "Statement{" +
-                "previousBalance=" + previousBalance +
+                "statementId=" + statementId +
+                ", previousBalance=" + previousBalance +
                 ", paymentsAndCredits=" + paymentsAndCredits +
                 ", purchases=" + purchases +
                 ", balanceTransfers=" + balanceTransfers +
@@ -53,6 +54,9 @@ public class Statement {
                 ", statementCloseDate='" + statementCloseDate + '\'' +
                 ", daysInBillingCycle=" + daysInBillingCycle +
                 '}';
+    }
+
+    public Statement() {
     }
 
     public Double getPreviousBalance() {
@@ -143,12 +147,20 @@ public class Statement {
         this.statementCloseDate = statementCloseDate;
     }
 
-    public Integer getDaysInBillingCycle() {
+    public int getDaysInBillingCycle() {
         return daysInBillingCycle;
     }
 
-    public void setDaysInBillingCycle(Integer daysInBillingCycle) {
+    public void setDaysInBillingCycle(int daysInBillingCycle) {
         this.daysInBillingCycle = daysInBillingCycle;
+    }
+
+    public int getStatementId() {
+        return statementId;
+    }
+
+    public void setStatementId(int statementId) {
+        this.statementId = statementId;
     }
 }
 

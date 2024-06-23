@@ -24,7 +24,7 @@ public class CreditCardController {
         return creditCardRepo.findAll();
     }
 
-    @GetMapping("/api/{cardNumber}")
+    @GetMapping("/api/card/{cardNumber}")
     public @ResponseBody CreditCard getCreditCard(@PathVariable String cardNumber) {
         return creditCardRepo.findByCardNumber(cardNumber);
     }
