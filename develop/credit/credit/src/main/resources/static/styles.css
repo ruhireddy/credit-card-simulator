@@ -54,12 +54,26 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    padding: 10px;
+    border-right: 1px solid #c1dbff;
 }
 
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
+}
+
+nav ul li#sign-out-button {
+    /* write code to make this aligned to the right */
+    background-color: #025dbf;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    padding: 10px;
+    justify-content: space-between;
 }
 
 .page {
