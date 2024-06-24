@@ -11,7 +11,7 @@ public class Transactions {
     private String state;
     private String country;
     private String merchant;
-    private String merchatCategory;
+    private String merchantCategory;
 
     public Transactions() {
     }
@@ -23,7 +23,7 @@ public class Transactions {
         this.city = city;
         this.state = state;
         this.merchant = merchant;
-        this.merchatCategory = merchatCategory;
+        this.merchantCategory = merchatCategory;
     }
 
     public String getTransactionId() {
@@ -78,12 +78,12 @@ public class Transactions {
         this.merchant = merchant;
     }
 
-    public String getMerchatCategory() {
-        return merchatCategory;
+    public String getMerchantCategory() {
+        return merchantCategory;
     }
 
-    public void setMerchatCategory(String merchatCategory) {
-        this.merchatCategory = merchatCategory;
+    public void setMerchantCategory(String merchantCategory) {
+        this.merchantCategory = merchantCategory;
     }
 
     public void setCountry(String country) {
@@ -100,7 +100,7 @@ public class Transactions {
                 ", state='" + state + '\'' +
                 ", country='" + country + '\'' +
                 ", merchant='" + merchant + '\'' +
-                ", merchatCategory='" + merchatCategory + '\'' +
+                ", merchatCategory='" + merchantCategory + '\'' +
                 '}';
     }
 }
