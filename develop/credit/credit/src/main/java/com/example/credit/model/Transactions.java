@@ -100,7 +100,7 @@ public class Transactions {
                 ", state='" + state + '\'' +
                 ", country='" + country + '\'' +
                 ", merchant='" + merchant + '\'' +
-                ", merchatCategory='" + merchantCategory + '\'' +
+                ", merchantCategory='" + merchantCategory + '\'' +
                 '}';
     }
 }
