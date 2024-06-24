@@ -17,7 +17,7 @@ public class AccountHolderController {
         this.accountHolderRepo = accountHolderRepo;
     }
 
-    @GetMapping("/all-account-holders")
+    @GetMapping("/admin/password/all-account-holders")
     public @ResponseBody List<AccountHolder> getAllAccountHolders() {
         return accountHolderRepo.findAll();
     }
@@ -25,6 +25,21 @@ public class AccountHolderController {
     @GetMapping("/api/account-holders/{phoneNumber}")
     public @ResponseBody AccountHolder getAccountHolder(@PathVariable String phoneNumber) {
         return accountHolderRepo.findByPhoneNumber(phoneNumber);
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/homepage")
+    public String register() {
+        return "homepage";
+    }
+
+    @GetMapping("/transactions")
+    public String transactions() {
+        return "transactions";
     }
 
 }
