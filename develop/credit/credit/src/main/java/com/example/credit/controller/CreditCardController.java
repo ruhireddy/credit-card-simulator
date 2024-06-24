@@ -19,13 +19,13 @@ public class CreditCardController {
     }
 
 
-    @GetMapping("/all-cards")
-    public @ResponseBody List<CreditCard> getAllCards() {
-        return creditCardRepo.findAll();
-    }
-
-    @GetMapping("/api/card/{cardNumber}")
-    public @ResponseBody CreditCard getCreditCard(@PathVariable String cardNumber) {
-        return creditCardRepo.findByCardNumber(cardNumber);
-    }
+//    @GetMapping("/all-cards")
+//    public @ResponseBody List<CreditCard> getAllCards() {
+//        return creditCardRepo.findAll();
+//    }
+//
+//    @GetMapping("/api/card/{cardNumber}")
+//    public @ResponseBody CreditCard getCreditCard(@PathVariable String cardNumber) {
+//        return creditCardRepo.findByCardNumber(cardNumber);
+//    }
 }

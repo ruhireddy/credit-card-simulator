@@ -38,6 +38,11 @@ public class StatementController {
         return "login";
     }
 
+    @GetMapping("/")
+    public String redirectLogin() {
+        return "login";
+    }
+
     @GetMapping("/api/statement/{statementId}")
     public @ResponseBody Statement getStatement(@PathVariable int statementId) {
         return statementRepo.findByStatementId(statementId);
