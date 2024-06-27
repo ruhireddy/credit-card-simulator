@@ -28,7 +28,7 @@ function fetchAccountHolderOwnedCards() {
 function parseAndDisplayTransactions() {
     const nextCardInfo = "http://localhost:8080/api/card/" + cardsToSearchThrough[card];
 
-	for (i in cardsToSearchThrough) {
+	for (card in cardsToSearchThrough) {
 		fetch(nextCardInfo)
 			.then((response) => response.json())
 			.then((data) => {
@@ -88,6 +88,19 @@ function writeToTable() {
 
 function sortTransactionsByDate() {
 	return arrayDates.sort((a, b) => b - a);
+}
+
+function goToUserHome() {
+    window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/homepage";
+}
+
+function goToUserTransactions() {
+    window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/transactions";
+}
+
+function goToUserStatements() {
+    window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/statements";
+
 }
 
 /* presentation details
