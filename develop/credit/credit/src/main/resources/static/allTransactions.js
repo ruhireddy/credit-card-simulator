@@ -1,11 +1,9 @@
-// TODO: make sure navbar buttons go to correct endpoint (dynamic based on user!)
-
 // we are assuming our url looks like this:
 // http://localhost:8080/api/account-holders/{phone-number}/transactions
 
 const tableHolderData = [];
 const arrayDates = [];
-const pathArray = (window.location.pathname).split("/");
+const pathArray = window.location.pathname.split("/");
 
 const cardsToSearchThrough = [];
 
@@ -13,22 +11,21 @@ const cardsToSearchThrough = [];
 fetchAccountHolderOwnedCards();
 
 function fetchAccountHolderOwnedCards() {
-    const accountHolderOwnedCards = "http://localhost:8080/api/account-holders/" + pathArray[3];
+	const accountHolderOwnedCards = "http://localhost:8080/api/account-holders/" + pathArray[3];
 
-    fetch(accountHolderOwnedCards)
-    .then((response) => response.json())
-    .then((data) => {
-        for (card in data.ownedCreditCards) {
-            cardsToSearchThrough.push(data.ownedCreditCards[card]);
-        }
-        parseAndDisplayTransactions();
-    });
+	fetch(accountHolderOwnedCards)
+		.then((response) => response.json())
+		.then((data) => {
+			for (card in data.ownedCreditCards) {
+				cardsToSearchThrough.push(data.ownedCreditCards[card]);
+			}
+			parseAndDisplayTransactions();
+		});
 }
 
 function parseAndDisplayTransactions() {
-
 	for (card in cardsToSearchThrough) {
-        // fetch next card's transactions
+		// fetch next card's transactions
 		fetch("http://localhost:8080/api/card/" + cardsToSearchThrough[card])
 			.then((response) => response.json())
 			.then((data) => {
@@ -91,16 +88,15 @@ function sortTransactionsByDate() {
 }
 
 function goToUserHome() {
-    window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/homepage";
+	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/homepage";
 }
 
 function goToUserTransactions() {
-    window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/transactions";
+	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/transactions";
 }
 
 function goToUserStatements() {
-    window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/statements";
-
+	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/statements";
 }
 
 /* presentation details
