@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 	<head>
-        <link
-        rel="stylesheet"
-        media="all"
-        href="/styles.css"
-        th:href="@{/styles.css}"
-    />
+		<link
+			rel="stylesheet"
+			media="all"
+			href="/styles.css"
+			th:href="@{/styles.css}"
+		/>
 
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,14 +14,20 @@
 	</head>
 	<body class="main-body">
 		<h1>Town® Credit Card Manager</h1>
-        <nav>
-            <ul>
-                <li><a href="http://localhost:8080/homepage">Home</a></li>
-                <li><a href="http://localhost:8080/statements">Statements Summary</a></li>
-                <li><a href="http://localhost:8080/transactions">All Transactions</a></li>
-                <li id="sign-out-button"><a href="http://localhost:8080/login">Sign Out</a></li>
-            </ul>
-        </nav>
+		<nav>
+			<ul>
+				<li><a onclick="goToUserHome()">Home</a></li>
+				<li>
+					<a onclick="goToUserStatements()">Statements Summary</a>
+				</li>
+				<li>
+					<a onclick="goToUserTransactions()">All Transactions</a>
+				</li>
+				<li id="sign-out-button">
+					<a href="http://localhost:8080/login">Sign Out</a>
+				</li>
+			</ul>
+		</nav>
 		<div id="home" class="page">
 			<div class="card">
 				<h2>Town® ThankYou® Preferred</h2>
@@ -40,7 +46,8 @@
 		</div>
 	</body>
 	<script
-        type="text/javascript"
-        href="/homepage.js"
-        th:src="@{/homepage.js}"></script>
+		type="text/javascript"
+		href="/homepage.js"
+		th:src="@{/homepage.js}"
+	></script>
 </html>

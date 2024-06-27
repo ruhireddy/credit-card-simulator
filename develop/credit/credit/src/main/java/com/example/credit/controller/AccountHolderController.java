@@ -47,4 +47,9 @@ public class AccountHolderController {
         return "transactions";
     }
 
+    @GetMapping("/api/account-holders/{phoneNumber}/statements")
+    public String statements() {
+        return "statements";
+    }
+
 }
