@@ -32,12 +32,17 @@ public class AccountHolderController {
         return "login";
     }
 
-    @GetMapping("/homepage")
+    @GetMapping("/")
+    public String redirectLogin() {
+        return "login";
+    }
+
+    @GetMapping("/api/account-holders/{phoneNumber}/homepage")
     public String register() {
         return "homepage";
     }
 
-    @GetMapping("/transactions")
+    @GetMapping("/api/account-holders/{phoneNumber}/transactions")
     public String transactions() {
         return "transactions";
     }

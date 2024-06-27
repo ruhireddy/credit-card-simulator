@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
         console.log(username.value);
         console.log(password.value);
         
-        var new_url = "http://localhost:8080/api/card/" + username.value;
+        var new_url = "http://localhost:8080/api/account-holders/" + username.value + "/homepage";
         window.location.replace(new_url);
 
 	});

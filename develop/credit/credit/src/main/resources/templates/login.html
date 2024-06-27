@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 	<head>
-		<link rel="stylesheet" th:href="styles.css" />
+        <link
+        rel="stylesheet"
+        media="all"
+        href="/styles.css"
+        th:href="@{/styles.css}"
+    />
 
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +14,7 @@
 	</head>
 	<body id="login-page">
 		<div class="login-container">
-			<h1>Citi Credit Card Manager</h1>
+			<h1>Town® Credit Card Manager</h1>
 			<!-- <form action="/login" method="post"> -->
 			<form id="login-form">
 				<label for="username">Username:</label>
@@ -24,4 +29,3 @@
 	</body>
 	<script type="text/javascript" th:src="main.js"></script>
 </html>
- 
