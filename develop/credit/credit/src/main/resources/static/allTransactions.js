@@ -26,10 +26,10 @@ function fetchAccountHolderOwnedCards() {
 }
 
 function parseAndDisplayTransactions() {
-    const nextCardInfo = "http://localhost:8080/api/card/" + cardsToSearchThrough[card];
 
 	for (card in cardsToSearchThrough) {
-		fetch(nextCardInfo)
+        // fetch next card's transactions
+		fetch("http://localhost:8080/api/card/" + cardsToSearchThrough[card])
 			.then((response) => response.json())
 			.then((data) => {
 				for (transaction in data.transactions) {

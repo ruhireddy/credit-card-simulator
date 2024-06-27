@@ -59,6 +59,12 @@ nav ul {
 nav ul li {
     padding: 10px;
     border-right: 1px solid #c1dbff;
+    
+}
+
+nav ul li:hover {
+    cursor: pointer;
+    
 }
 
 nav ul li:last-child {
