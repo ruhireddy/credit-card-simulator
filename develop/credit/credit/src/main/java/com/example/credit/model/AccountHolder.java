@@ -2,7 +2,7 @@ package com.example.credit.model;
 
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+import com.example.credit.model.CardInformation;
 import java.util.List;
 
 @Data

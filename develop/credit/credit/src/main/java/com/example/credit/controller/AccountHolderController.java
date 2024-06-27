@@ -2,10 +2,11 @@ package com.example.credit.controller;
 
 import com.example.credit.model.AccountHolder;
 import com.example.credit.repository.AccountHolderRepo;
+import com.example.credit.model.CardInformation;
+import com.example.credit.model.Transactions;
+import com.example.credit.repository.CardInformationRepo;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +26,12 @@ public class AccountHolderController {
     @GetMapping("/api/account-holders/{phoneNumber}")
     public @ResponseBody AccountHolder getAccountHolder(@PathVariable String phoneNumber) {
         return accountHolderRepo.findByPhoneNumber(phoneNumber);
+    }
+
+    @GetMapping("/{phoneNumber}/cards")
+    public @ResponseBody List<String> getCardsByPhoneNumber(@PathVariable String phoneNumber) {
+        AccountHolder accountHolder = accountHolderRepo.findByPhoneNumber(phoneNumber);
+        return accountHolder.getOwnedCreditCards();
     }
 
     @GetMapping("/login")
