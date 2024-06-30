@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 	<head>
-		<link
-			rel="stylesheet"
-			media="all"
-			href="/styles.css"
-			th:href="@{/styles.css}"
-		/>
+		<link rel="stylesheet" media="all" href="/styles.css" th:href="@{/styles.css}" />
 
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,46 +23,168 @@
 				</li>
 			</ul>
 		</nav>
-
+        
 		<!-- Statements Page -->
 		<div id="statements" class="page">
-			<h2>Statement History</h2>
+            <h2>Account Summary</h2>
 			<div class="statement-summary">
-				<div>
-					<h3>By Category</h3>
-					<ul>
-						<li>Groceries: $200.02</li>
-						<li>Internet Purchase: $203.34</li>
-						<!-- More categories here -->
-					</ul>
-				</div>
-				<div>
-					<h3>Details</h3>
-					<table id="statements-table">
-						<tr>
-							<th>Date</th>
-							<th>Amount</th>
-							<th>Description</th>
+                <div>
+                    <h3>Details</h3>
+                    <table class="statements-table">
+                        <tr>
+                            <th>Previous Balance</th>
+                            <td>$ 321.65</td>
+                        </tr>
+                        <tr>
+                            <th>Payments and Credits</th>
+                            <td>$ 432.76</td>
+                        </tr>
+                        <tr>
+                            <th>Purchases</th>
+                            <td>$ 543.87</td>
+                        </tr>
+                        <tr>
+                            <th>Balance Transfers</th>
+                            <td>$ 654.98</td>
+                        </tr>
+                        <tr>
+                            <th>Cash Advances</th>
+                            <td>$ 765.09</td>
+                        </tr>
+                        <tr>
+                            <th>Fees</th>
+                            <td>$ 876.10</td>
+                        </tr>
+                        <tr>
+                            <th>Interest Charged</th>
+                            <td>$ 987.21</td>
+                        </tr>
+                        <tr>
+                            <th>New Balance</th>
+                            <td>$ 109.32</td>
+                        </tr>
+                        <tr>
+                            <th>Credit Line</th>
+                            <td>$ 2,000.00</td>
+                        </tr>
+                        <tr>
+                            <th>Available Credit</th>
+                            <td>$ 1,500.00</td>
+                        </tr>
+                        <tr>
+                            <th>Statement Close Date</th>
+                            <td>10/31/2024</td>
+                        </tr>
+                        <tr>
+                            <th>Days in Billing Cycle</th>
+                            <td>31</td>
+                        </tr>
+                    </table>
+                    <hr>                 
+                    <table class="statements-table">
+                        <tr>
+                            <th>Previous Balance</th>
+                            <td>$ 123.45</td>
+                        </tr>
+                        <tr>
+                            <th>Payments and Credits</th>
+                            <td>$ 234.56</td>
+                        </tr>
+                        <tr>
+                            <th>Purchases</th>
+                            <td>$ 345.67</td>
+                        </tr>
+                        <tr>
+                            <th>Balance Transfers</th>
+                            <td>$ 456.78</td>
+                        </tr>
+                        <tr>
+                            <th>Cash Advances</th>
+                            <td>$ 567.89</td>
+                        </tr>
+                        <tr>
+                            <th>Fees</th>
+                            <td>$ 678.90</td>
+                        </tr>
+                        <tr>
+                            <th>Interest Charged</th>
+                            <td>$ 789.01</td>
+                        </tr>
+                        <tr>
+                            <th>New Balance</th>
+                            <td>$ 890.12</td>
+                        </tr>
+                        <tr>
+                            <th>Credit Line</th>
+                            <td>$ 1,000.00</td>
+                        </tr>
+                        <tr>
+                            <th>Available Credit</th>
+                            <td>$ 500.00</td>
+                        </tr>
+                        <tr>
+                            <th>Statement Close Date</th>
+                            <td>09/30/2024</td>
+                        </tr>
+                        <tr>
+                            <th>Days in Billing Cycle</th>
+                            <td>30</td>
+                        </tr>
+                    </table>
+                    <hr>
+					<table class="statements-table">
+                        <tr>
+							<th>Previous Balance</th>
+							<td>$ 267.75</td>
 						</tr>
 						<tr>
-							<td>2019-08-10</td>
-							<td>$200.02</td>
-							<td>Lure Fishbar</td>
+							<th>Payments and Credits</th>
+							<td>$ 267.75</td>
 						</tr>
 						<tr>
-							<td>2019-08-08</td>
-							<td>$203.34</td>
-							<td>Langolo Ristorante</td>
+							<th>Purchases</th>
+							<td>$ 0.00</td>
 						</tr>
-						<!-- More statements here -->
+						<tr>
+							<th>Balance Transfers</th>
+							<td>$ 0.00</td>
+						</tr>
+						<tr>
+							<th>Cash Advances</th>
+							<td>$ 0.00</td>
+						</tr>
+						<tr>
+							<th>Fees</th>
+							<td>$ 0.00</td>
+						</tr>
+						<tr>
+							<th>Interest Charged</th>
+							<td>$ 0.00</td>
+						</tr>
+						<tr>
+							<th>New Balance</th>
+							<td>$ 207.98</td>
+						</tr>
+						<tr>
+							<th>Credit Line</th>
+							<td>$ 4,000.00</td>
+						</tr>
+						<tr>
+							<th>Available Credit</th>
+							<td>$ 3,792.02</td>
+						</tr>
+						<tr>
+							<th>Statement Close Date</th>
+							<td>08/31/2024</td>
+						</tr>
+						<tr>
+							<th>Days in Billing Cycle</th>
+							<td>30</td>
+						</tr>
 					</table>
 				</div>
 			</div>
 		</div>
 	</body>
-	<script
-		type="text/javascript"
-		href="/statements.js"
-		th:src="@{/statements.js}"
-	></script>
+	<script type="text/javascript" href="/statements.js" th:src="@{/statements.js}"></script>
 </html>
