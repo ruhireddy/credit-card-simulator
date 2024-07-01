@@ -67,11 +67,6 @@ nav ul li:hover {
     
 }
 
-nav ul li:last-child {
-    border-right: none;
-    margin-left: auto;
-}
-
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
@@ -157,4 +152,15 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+.statement-summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    text-align: left;
+}
+hr {
+    width: 800px;
+    border-color: #000000;
 }
