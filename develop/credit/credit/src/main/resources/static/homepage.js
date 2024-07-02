@@ -107,3 +107,15 @@ function popHomepage() {
 			}
 		});
 }
+
+function goToUserHome() {
+	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray1[3] + "/homepage";
+}
+
+function goToUserTransactions() {
+	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray1[3] + "/transactions";
+}
+
+function goToUserStatements() {
+	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray1[3] + "/statements";
+}
