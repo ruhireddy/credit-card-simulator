@@ -23,21 +23,14 @@
             </ul>
         </nav>
 		<div id="home" class="page">
-			<div class="card">
-				<h2>Town® ThankYou® Preferred</h2>
-				<p>Current Balance: $0.00</p>
-				<p>Available Credit: $2,500.00</p>
-				<button>View Transactions</button>
-				<button>Make a Payment</button>
-			</div>
-			<div class="card">
-				<h2>Town® Forward® Card</h2>
-				<p>Current Balance: $0.00</p>
-				<p>Available Credit: $2,500.00</p>
-				<button>View Transactions</button>
-				<button>Make a Payment</button>
-			</div>
+			<script
+				type="text/javascript"
+				href="/populateHomepage.js"
+				th:src="@{/populateHomepage.js}"
+			></script>
 		</div>
 	</body>
 	<script type="text/javascript" th:src="main.js"></script>
+
 </html>
+
