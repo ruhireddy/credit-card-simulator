@@ -2,25 +2,22 @@
 
 // we are assuming our url looks like this:
 // http://localhost:8080/api/account-holders/{phone-number}/transactions
+const pathArray1 = (window.location.pathname).split("/");
 
-const tableHolderData = [];
-const arrayDates = [];
-const pathArray = (window.location.pathname).split("/");
-
-const cardsToSearchThrough = [];
+const cardsToSearchThrough1 = [];
 let sum = 0;
 // * main program entry point
-fetchAccountHolderOwnedCards();
+popHomepage();
 
-function fetchAccountHolderOwnedCards() {
-    const accountHolderOwnedCards = "http://localhost:8080/api/account-holders/" + pathArray[3];
+function popHomepage() {
+    const accountHolderOwnedCards = "http://localhost:8080/api/account-holders/" + pathArray1[3];
 	const cardsContainer = document.getElementById('home');
     fetch(accountHolderOwnedCards)
     .then((response) => response.json())
     .then((data) => {
         for (card in data.ownedCreditCards) {
-            cardsToSearchThrough.push(data.ownedCreditCards[card]);
-			const nextCardInfo = "http://localhost:8080/api/card/" + cardsToSearchThrough[card];
+            cardsToSearchThrough1.push(data.ownedCreditCards[card]);
+			const nextCardInfo = "http://localhost:8080/api/card/" + cardsToSearchThrough1[card];
 			fetch(nextCardInfo)
 				.then((response) => response.json())
 				.then((data) => {
@@ -37,7 +34,6 @@ function fetchAccountHolderOwnedCards() {
 
 					let sum = 0;
 					for (transaction in data.transactions) {
-						console.log(sum);
 						sum += parseFloat(data.transactions[transaction].amount);
 					}
 
@@ -48,16 +44,66 @@ function fetchAccountHolderOwnedCards() {
 
 					// Set the button text
 					button.innerText = "Transactions";
+					const transactionsHTML = `
+						  <div id="transactions" class="page">
+							<h2>Transaction History</h2>
+							<div class="transactions">
+							  <h3>Details</h3>
+							  <table id="transactions-table">
+								<thead>
+								  <tr class="transaction-list-element">
+									<th>Reference</th>
+									<th>Date</th>
+									<th>Amount</th>
+									<th>City</th>
+									<th>State</th>
+									<th>Country</th>
+									<th>Merchant</th>
+									<th>Category</th>
+									<th>Status</th>
+								  </tr>
+								</thead>
+								<tbody>
+								  <!-- Table rows will be added here dynamically -->
+								</tbody>
+							  </table>
+							</div>
+						  </div>
+						`;
+					const transactions = document.createElement('div');
+					transactions.innerHTML = transactionsHTML;
+					transactions.style.display = 'none';
+
+					const tbody = transactions.querySelector('tbody');
+					data.transactions.forEach(transaction => {
+						const row = document.createElement('tr');
+						row.innerHTML = `
+						  <td>${transaction.transactionId}</td>
+						  <td>${transaction.date}</td>
+						  <td>$${transaction.amount}</td>
+						  <td>${transaction.city}</td>
+						  <td>${transaction.state}</td>
+						  <td>${transaction.country}</td>
+						  <td>${transaction.merchant}</td>
+						  <td>${transaction.merchantCategory}</td>
+						  <td>Pending</td>
+						`;
+						tbody.appendChild(row);
+					});
 
 					// Add an event listener to the button
 					button.addEventListener('click', function() {
-
+						if (transactions.style.display == 'block')
+							transactions.style.display = 'none';
+						else
+							transactions.style.display = 'block';
 					});
 
 					cardDiv.appendChild(cardNumber);
 					cardDiv.appendChild(creditLimit);
 					cardDiv.appendChild(cardBalance);
 					cardDiv.appendChild(button);
+					cardDiv.appendChild(transactions);
 					cardsContainer.appendChild(cardDiv);
 
 				});
@@ -66,17 +112,3 @@ function fetchAccountHolderOwnedCards() {
 }
 
 
-
-/* presentation details
-
-Your presentation should include:
-
-- An introduction of the team and the project       (SEAN)
-- An overview of your application architecture and design (JOHN)
-- The technologies used in the project 
-- A live demonstration of your application  (WHOEVER IS SCREENSHARING)
-- A reflection of how you worked together as a team
-- Lessons learned and what you would have done differently § What you would do next if you had more time
-
-
-*/
