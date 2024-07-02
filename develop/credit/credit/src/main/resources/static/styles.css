@@ -65,9 +65,9 @@ nav ul li {
 
 }
 
-nav ul li:hover {
+nav ul li a:hover {
     cursor: pointer;
-
+    color: #c1dbff;
 }
 
 nav ul li a {
