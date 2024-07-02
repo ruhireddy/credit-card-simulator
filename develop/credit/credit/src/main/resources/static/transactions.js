@@ -24,9 +24,8 @@ function fetchAccountHolderOwnedCards() {
 }
 
 function parseAndDisplayTransactions() {
-
 	for (card in cardsToSearchThrough) {
-        // fetch next card's transactions
+		// fetch next card's transactions
 		fetch("http://localhost:8080/api/card/" + cardsToSearchThrough[card])
 			.then((response) => response.json())
 			.then((data) => {
@@ -89,28 +88,13 @@ function sortTransactionsByDate() {
 }
 
 function goToUserHome() {
-    window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/homepage";
+	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/homepage";
 }
 
 function goToUserTransactions() {
-    window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/transactions";
+	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/transactions";
 }
 
 function goToUserStatements() {
-    window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/statements";
-
+	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/statements";
 }
-
-/* presentation details
-
-Your presentation should include:
-
-- An introduction of the team and the project       (SEAN)
-- An overview of your application architecture and design (JOHN)
-- The technologies used in the project 
-- A live demonstration of your application  (WHOEVER IS SCREENSHARING)
-- A reflection of how you worked together as a team
-- Lessons learned and what you would have done differently § What you would do next if you had more time
-
-
-*/

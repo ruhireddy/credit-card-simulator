@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 	<head>
-		<link
-			rel="stylesheet"
-			media="all"
-			href="/styles.css"
-			th:href="@{/styles.css}"
-		/>
+		<link rel="stylesheet" media="all" href="/styles.css" th:href="@{/styles.css}" />
 
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,14 +15,10 @@
 			<ul>
 				<li><a onclick="goToUserHome(username)">Home</a></li>
 				<li>
-					<a onclick="goToUserStatements(username)"
-						>Statements Summary</a
-					>
+					<a onclick="goToUserStatements(username)">Statements Summary</a>
 				</li>
 				<li>
-					<a onclick="goToUserTransactions(username)"
-						>All Transactions</a
-					>
+					<a onclick="goToUserTransactions(username)">All Transactions</a>
 				</li>
 				<li id="sign-out-button">
 					<a href="http://localhost:8080/login">Sign Out</a>
@@ -55,9 +46,5 @@
 			</div>
 		</div>
 	</body>
-	<script
-		type="text/javascript"
-		href="/transactions.js"
-		th:src="@{/transactions.js}"
-	></script>
+	<script type="text/javascript" href="/transactions.js" th:src="@{/transactions.js}"></script>
 </html>
