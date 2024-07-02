@@ -18,8 +18,7 @@ public class CardInformationController {
         this.cardInformationRepo = cardInformationRepo;
     }
 
-
-    @GetMapping("/all-cards")
+    @GetMapping("/admin/password/all-cards")
     public @ResponseBody List<CardInformation> getAllCards() {
         return cardInformationRepo.findAll();
     }
