@@ -22,9 +22,9 @@ public class AccountHolderController {
         return accountHolderRepo.findAll();
     }
 
-    @GetMapping("/api/account-holders/{phoneNumber}")
-    public @ResponseBody AccountHolder getAccountHolder(@PathVariable String phoneNumber) {
-        return accountHolderRepo.findByPhoneNumber(phoneNumber);
+    @GetMapping("/api/account-holders/{email}")
+    public @ResponseBody AccountHolder getAccountHolder(@PathVariable String email) {
+        return accountHolderRepo.findByEmail(email);
     }
 
     @GetMapping("/login")
@@ -37,17 +37,17 @@ public class AccountHolderController {
         return "login";
     }
 
-    @GetMapping("/api/account-holders/{phoneNumber}/homepage")
+    @GetMapping("/api/account-holders/{email}/homepage")
     public String register() {
         return "homepage";
     }
 
-    @GetMapping("/api/account-holders/{phoneNumber}/transactions")
+    @GetMapping("/api/account-holders/{email}/transactions")
     public String transactions() {
         return "transactions";
     }
 
-    @GetMapping("/api/account-holders/{phoneNumber}/statements")
+    @GetMapping("/api/account-holders/{email}/statements")
     public String statements() {
         return "statements";
     }
