@@ -4,6 +4,7 @@
 const tableHolderData = [];
 const arrayDates = [];
 const pathArray = window.location.pathname.split("/");
+const userEmail = pathArray[3];
 
 const cardsToSearchThrough = [];
 
@@ -11,7 +12,7 @@ const cardsToSearchThrough = [];
 fetchAccountHolderOwnedCards();
 
 function fetchAccountHolderOwnedCards() {
-	const accountHolderOwnedCards = "http://localhost:8080/api/account-holders/" + pathArray[3];
+	const accountHolderOwnedCards = "http://localhost:8080/api/account-holders/" + userEmail;
 
 	fetch(accountHolderOwnedCards)
 		.then((response) => response.json())
@@ -51,7 +52,7 @@ function prepDataForTable(data) {
 		newCell.textContent = arrayDates[i].toLocaleDateString();
 
 		newCell = tableRowNode.insertCell(2);
-		newCell.textContent = data.transactions[i].amount;
+		newCell.textContent = `${parseFloat(data.transactions[i].amount).toFixed(2)}`;
 
 		newCell = tableRowNode.insertCell(3);
 		newCell.textContent = data.transactions[i].city;
@@ -88,13 +89,13 @@ function sortTransactionsByDate() {
 }
 
 function goToUserHome() {
-	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/homepage";
+	window.location.href = "http://localhost:8080/api/account-holders/" + userEmail + "/homepage";
 }
 
 function goToUserTransactions() {
-	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/transactions";
+	window.location.href = "http://localhost:8080/api/account-holders/" + userEmail + "/transactions";
 }
 
 function goToUserStatements() {
-	window.location.href = "http://localhost:8080/api/account-holders/" + pathArray[3] + "/statements";
+	window.location.href = "http://localhost:8080/api/account-holders/" + userEmail + "/statements";
 }
