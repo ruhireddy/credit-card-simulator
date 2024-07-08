@@ -44,9 +44,17 @@ function homepageMain() {
 					.then((response) => response.json())
 					.then((data) => {
 						insertCCdisplaysOntoHomepage(data);
+
 					});
 			}
 		});
+}
+
+function createMakePaymentButton() {
+    var button = document.createElement("button");
+	button.innerText = "Make Payment";
+
+    return button;
 }
 
 function insertCCdisplaysOntoHomepage(data) {
@@ -60,8 +68,22 @@ function createCardDivChildren(data) {
 	const cardName = document.createElement("h2");
 	const creditLimit = document.createElement("p");
 	const cardBalance = document.createElement("p");
-
+    
 	let transactionsSum = findTransactionsSum(data);
+
+    var makePaymentButton = createMakePaymentButton();
+    makePaymentButton.addEventListener("click", function () {
+		let userInput = prompt("Enter payment amount");
+        if (userInput != null) {
+            let paymentAmount = parseFloat(userInput);
+            if (paymentAmount > 0 && paymentAmount <= transactionsSum) {
+                let newBalance = transactionsSum - paymentAmount;
+                // let transactionsSum = transactionsSum - paymentAmount;
+                cardBalance.textContent = `Card Balance: $${newBalance.toFixed(2)}`;
+                transactionsSum = newBalance;
+            }
+        }
+	});
 
 	cardDiv.classList.add("card");
 	cardName.textContent = `${data.cardName}`;
@@ -82,6 +104,7 @@ function createCardDivChildren(data) {
 	cardDiv.appendChild(cardBalance);
 	cardDiv.appendChild(transactions);
 	cardDiv.appendChild(button);
+    cardDiv.appendChild(makePaymentButton);
 
 	return cardDiv;
 }

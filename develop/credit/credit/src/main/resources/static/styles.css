@@ -179,6 +179,7 @@ button {
     color: #ffffff;
     cursor: pointer;
     border: none;
+    margin: 6px;
 }
 
 button:hover {
