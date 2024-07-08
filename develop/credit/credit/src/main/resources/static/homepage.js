@@ -82,6 +82,16 @@ function createCardDivChildren(data) {
                 cardBalance.textContent = `Card Balance: $${newBalance.toFixed(2)}`;
                 transactionsSum = newBalance;
             }
+            else if (paymentAmount > transactionsSum) {
+                alert("Payment amount exceeds card balance");
+                console.log("Payment amount exceeds card balance");
+            }
+            else if (paymentAmount <= 0) {
+                alert("Payment amount must be greater than 0");
+            }
+            else {
+                alert("Invalid input");
+            }
         }
 	});
 
