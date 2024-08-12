@@ -44,17 +44,16 @@ function homepageMain() {
 					.then((response) => response.json())
 					.then((data) => {
 						insertCCdisplaysOntoHomepage(data);
-
 					});
 			}
 		});
 }
 
 function createMakePaymentButton() {
-    var button = document.createElement("button");
+	var button = document.createElement("button");
 	button.innerText = "Make Payment";
 
-    return button;
+	return button;
 }
 
 function insertCCdisplaysOntoHomepage(data) {
@@ -68,31 +67,30 @@ function createCardDivChildren(data) {
 	const cardName = document.createElement("h2");
 	const creditLimit = document.createElement("p");
 	const cardBalance = document.createElement("p");
-    
+
 	let transactionsSum = findTransactionsSum(data);
 
-    var makePaymentButton = createMakePaymentButton();
-    makePaymentButton.addEventListener("click", function () {
+	var makePaymentButton = createMakePaymentButton();
+	makePaymentButton.addEventListener("click", function () {
 		let userInput = prompt("Enter payment amount");
-        if (userInput != null) {
-            let paymentAmount = parseFloat(userInput);
-            if (paymentAmount > 0 && paymentAmount <= transactionsSum) {
-                let newBalance = transactionsSum - paymentAmount;
-                // let transactionsSum = transactionsSum - paymentAmount;
-                cardBalance.textContent = `Card Balance: $${newBalance.toFixed(2)}`;
-                transactionsSum = newBalance;
-            }
-            else if (paymentAmount > transactionsSum) {
-                alert("Payment amount exceeds card balance");
-                console.log("Payment amount exceeds card balance");
-            }
-            else if (paymentAmount <= 0) {
-                alert("Payment amount must be greater than 0");
-            }
-            else {
-                alert("Invalid input");
-            }
-        }
+		if (userInput != null) {
+			let paymentAmount = parseFloat(userInput);
+			if (paymentAmount > 0 && paymentAmount <= transactionsSum) {
+				let newBalance = transactionsSum - paymentAmount;
+				// Update card balance - PUT request
+				// sendPutRequest("http://localhost:8080/api/account-holders/" + userEmail, data);
+				console.log(data.cardNumber);
+				cardBalance.textContent = `Card Balance: $${newBalance.toFixed(2)}`;
+				transactionsSum = newBalance;
+			} else if (paymentAmount > transactionsSum) {
+				alert("Payment amount exceeds card balance");
+				console.log("Payment amount exceeds card balance");
+			} else if (paymentAmount <= 0) {
+				alert("Payment amount must be greater than 0");
+			} else {
+				alert("Invalid input");
+			}
+		}
 	});
 
 	cardDiv.classList.add("card");
@@ -114,9 +112,28 @@ function createCardDivChildren(data) {
 	cardDiv.appendChild(cardBalance);
 	cardDiv.appendChild(transactions);
 	cardDiv.appendChild(button);
-    cardDiv.appendChild(makePaymentButton);
+	cardDiv.appendChild(makePaymentButton);
 
 	return cardDiv;
+}
+
+function sendPutRequest(url, incomingData) {
+	fetch(url, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			cardNumber: incomingData.cardNumber,
+		}),
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log("Success:", data);
+		})
+		.catch((error) => {
+			console.error("Error:", error);
+		});
 }
 
 function createTransactionsTable(data) {
