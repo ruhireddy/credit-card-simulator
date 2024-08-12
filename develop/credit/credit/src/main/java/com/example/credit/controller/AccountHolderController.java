@@ -35,4 +35,24 @@ public class AccountHolderController {
         }
         return "homepage";
     }
+
+    @DeleteMapping("/api/account-holders/{email}/homepage")
+    public String deleteAccountHolderCard(
+            @RequestParam("cardNumber") String cardNumber,
+            @RequestParam("email") String email
+    ) {
+        AccountHolder accountHolder = accountHolderRepo.findByEmail(email);
+
+        if (accountHolder == null) {
+            return "login";
+        }
+        else if (accountHolder.getOwnedCreditCards().contains(cardNumber)) {
+            accountHolder.getOwnedCreditCards().remove(cardNumber);
+            accountHolderRepo.save(accountHolder);
+        }
+
+        return "homepage";
+
+    }
 }
+

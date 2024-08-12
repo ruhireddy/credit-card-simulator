@@ -1,13 +1,17 @@
 package com.example.credit.model;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.List;
 
 @Data
 @Document(collection = "AccountHolder")
 public class AccountHolder {
+    @MongoId
+    private ObjectId id;
     private String fullName;
     private String address;
     private String country;
@@ -19,7 +23,8 @@ public class AccountHolder {
     public AccountHolder() {
     }
 
-    public AccountHolder(String fullName, String address, String country, String phoneNumber, String email, String accountStatus, List<String> ownedCreditCards) {
+    public AccountHolder(ObjectId id, String fullName, String address, String country, String phoneNumber, String email, String accountStatus, List<String> ownedCreditCards) {
+        this.id = id;
         this.fullName = fullName;
         this.address = address;
         this.country = country;
@@ -27,6 +32,28 @@ public class AccountHolder {
         this.email = email;
         this.accountStatus = accountStatus;
         this.ownedCreditCards = ownedCreditCards;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountHolder{" +
+                "id='" + id + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", accountStatus='" + accountStatus + '\'' +
+                ", ownedCreditCards=" + ownedCreditCards +
+                '}';
+    }
+
+    public ObjectId getId() {
+        return id;
+    }
+
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     public String getFullName() {
@@ -85,16 +112,4 @@ public class AccountHolder {
         this.ownedCreditCards = ownedCreditCards;
     }
 
-    @Override
-    public String toString() {
-        return "AccountHolder{" +
-                "fullName='" + fullName + '\'' +
-                ", address='" + address + '\'' +
-                ", country='" + country + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", accountStatus='" + accountStatus + '\'' +
-                ", ownedCreditCards=" + ownedCreditCards +
-                '}';
-    }
 }
